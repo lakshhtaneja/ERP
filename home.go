@@ -6,11 +6,13 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/",
+	server := http.NewServeMux()
+
+	server.HandleFunc("/",
 		func(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte("ERP"))
 		})
-	err := http.ListenAndServe(":3333", nil)
+	err := http.ListenAndServe(":3333", server)
 	if err != nil {
 		fmt.Println("Error starting server")
 	}
