@@ -14,8 +14,10 @@ type Contact struct {
 }
 
 type Student struct {
-	User `json:"user"`
-	Cgpa float64 // json default uses float64
+	User    `json:"user"`
+	Major   string  `json:"major"`
+	ClassOf int     `json:"ClassOf"`
+	Cgpa    float64 // json default uses float64
 }
 
 //TODO: Add Course, Teacher, and Fee structs
