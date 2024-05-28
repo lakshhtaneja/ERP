@@ -3,15 +3,14 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/lakshhtaneja/ERP/api"
 )
 
 func main() {
 	server := http.NewServeMux()
 
-	server.HandleFunc("/",
-		func(w http.ResponseWriter, r *http.Request) {
-			w.Write([]byte("ERP"))
-		})
+	server.HandleFunc("/student/details", api.GetStudent)
 	err := http.ListenAndServe(":3333", server)
 	if err != nil {
 		fmt.Println("Error starting server")
