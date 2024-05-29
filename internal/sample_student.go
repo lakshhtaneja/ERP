@@ -13,5 +13,7 @@ var Peter = data.Student{
 		},
 		Status: "active",
 	},
-	Cgpa: 9.8,
+	Cgpa:    9.8,
+	Major:   "Computer Science",
+	ClassOf: 2025,
 }
