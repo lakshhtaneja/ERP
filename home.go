@@ -1,20 +1,46 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"html/template"
+	"io"
 
-	"github.com/gorilla/mux"
-
-	"github.com/lakshhtaneja/ERP/api"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
-func main() {
-	server := mux.NewRouter()
+type Templates struct {
+	templates *template.Template
+}
 
-	server.HandleFunc("/student/details", api.GetStudent).Methods("GET")
-	err := http.ListenAndServe(":3333", server)
-	if err != nil {
-		fmt.Println("Error starting server")
+func (t *Templates) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
+	return t.templates.ExecuteTemplate(w, name, data)
+}
+
+func NewTemplates() *Templates {
+	return &Templates{
+		templates: template.Must(template.ParseGlob("views/*.html")),
 	}
+}
+
+type Count struct {
+	Count int
+}
+
+func main() {
+	e := echo.New()
+	e.Renderer = NewTemplates()
+	e.Use(middleware.Logger())
+	e.Static("/public", "public")
+
+	e.Renderer = NewTemplates()
+
+	e.GET("/", func(c echo.Context) error {
+		return c.Render(200, "index", nil)
+	})
+
+	e.GET("/account", func(c echo.Context) error {
+		return c.Render(200, "account", nil)
+	})
+
+	e.Logger.Fatal(e.Start(":1323"))
 }
