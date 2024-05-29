@@ -6,6 +6,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/lakshhtaneja/ERP/internal"
 )
 
 type Templates struct {
@@ -33,13 +34,26 @@ func main() {
 	e.Static("/public", "public")
 
 	e.Renderer = NewTemplates()
+	edit := internal.Peter
 
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(200, "index", nil)
 	})
 
 	e.GET("/account", func(c echo.Context) error {
-		return c.Render(200, "account", nil)
+		return c.Render(200, "account", edit)
+	})
+
+	e.GET("/account/edit", func(c echo.Context) error {
+		return c.Render(200, "edit", edit)
+	})
+
+	e.POST("/account/edit", func(c echo.Context) error {
+		edit.Name = c.FormValue("name")
+		edit.Email = c.FormValue("email")
+		edit.Phone = c.FormValue("phone")
+		edit.Address = c.FormValue("address")
+		return c.Render(200, "studentDetails", edit)
 	})
 
 	e.Logger.Fatal(e.Start(":1323"))
