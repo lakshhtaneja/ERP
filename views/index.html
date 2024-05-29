@@ -1,0 +1,29 @@
+{{ block "index" . }}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a067255f3e.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="flex items-center p-4">
+        <i class="fas fa-home p-4"></i>
+        <h1 class="text-3xl">Home</h1>
+        <button hx-get="/account" hx-push-url="true" hx-swap="outerHTML" hx-target="body"
+            class="p-4 text-blue-800 font-bold underline">Account Center
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+</body>
+
+</html>
+{{ end }}
