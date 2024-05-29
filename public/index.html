@@ -4,71 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <script src="https://kit.fontawesome.com/a067255f3e.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/htmx.org@1.9.10"
     integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
     crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <title>Home</title>
 </head>
 
 <body>
-  <div class="p-4 flex items-center">
-    <i class="fas fa-arrow-left px-4"></i><span class="text-3xl">Account</span>
-  </div>
-  <div class="flex">
-    <img src="./assets/image.jpg" class="rounded-full w-40 h-40 flex flex-row  bg-gray-100 ml-12" />
-
-    <div class="mx-20 p-4 border-solid border-l-2 border-gray-400 border-side">
-      <table class="table-fixed w-96 text-left">
-        <tbody>
-          <tr>
-            <th>ID</th>
-            <td>Something</td>
-          </tr>
-          <tr>
-            <th>Name</th>
-            <td>Something</td>
-          </tr>
-          <tr>
-            <th>Phone</th>
-            <td>Something</td>
-          </tr>
-          <tr>
-            <th>Email</th>
-            <td>Something</td>
-          </tr>
-          <tr>
-            <th>Address</th>
-            <td>Something</td>
-          </tr>
-          <tr>
-            <th>Status</th>
-            <td>Reviewed</td>
-          </tr>
-          <tr>
-            <th>CGPA</th>
-            <td>3.5</td>
-          </tr>
-          <tr>
-            <th>Major</th>
-            <td>Computer Science</td>
-          </tr>
-          <tr>
-            <th>Graduation Year</th>
-            <td>2022</td>
-          </tr>
-        </tbody>
-
-      </table>
-    </div>
-    <div>
-      <span class="font-bold underline decoration-solid text-blue-800 cursor-pointer min-h min-w">Edit</span> <i
-        class="fas fa-edit"></i>
-    </div>
-  </div>
-  <div class="p-4 m-4">
-    <span class=" font-bold text-red-500 cursor-pointer min-h min-w">Logout</span> <i class="fa fa-sign-out"></i>
+  <div class="flex items-center p-4">
+    <i class="fas fa-home p-4"></i>
+    <h1 class="text-3xl">Home</h1>
+    <button hx-get="/student/details" hx-swap="outerHTML" class="p-4 text-blue-800 font-bold underline">Account Center
+      <i class="fas fa-arrow-right"></i>
+    </button>
   </div>
 </body>
 
