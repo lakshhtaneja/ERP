@@ -18,6 +18,7 @@ type Student struct {
 	Major   string `json:"major"`
 	ClassOf string `json:"ClassOf"`
 	Cgpa    string
+	Notes   []string `json:"notes"`
 }
 
 //TODO: Add Course, Teacher, and Fee structs
