@@ -35,7 +35,9 @@ func main() {
 
 	e.Renderer = NewTemplates()
 	edit := internal.Peter
-
+	colors := []string{"yellow", "red", "blue", "green", "orange", "purple", "pink"}
+	var color string
+	index := 0
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(200, "index", nil)
 	})
@@ -49,7 +51,12 @@ func main() {
 	})
 
 	e.GET("/new", func(c echo.Context) error {
-		return c.Render(200, "notes", nil)
+		color = colors[index]
+		index++
+		if index == len(colors) {
+			index = 0
+		}
+		return c.Render(200, "notes", color)
 	})
 
 	e.POST("/account/edit", func(c echo.Context) error {
