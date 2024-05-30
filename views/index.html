@@ -20,8 +20,9 @@
 </head>
 
 <body>
-    <div class="p-4 flex bg-slate-800">
+    <div class="p-4 flex bg-slate-800 justify-between">
         <i class="fas fa-chart-bar p-4 text-white"></i>
+        <img src="../public/image.jpg" class="rounded-full w-10 h-10 mr-4" />
     </div>
     <hr>
     <div class="flex">
@@ -31,29 +32,30 @@
             <ul class="py-4">
                 <li hx-get="/account" hx-push-url="true" hx-swap="outerHTML" hx-target="body"
                     class="cursor-pointer flex items-center py-2 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-100">
-                    <i class="fas fa-user mr-2"></i>
+                    <i class="fas fa-user mr-4 flex items-self-end"></i>
                     Account Center
                 </li>
                 <li
                     class="cursor-pointer flex items-center py-2 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-100">
-                    <i class="fas fa-chart-line mr-2"></i>
+                    <i class="fas fa-chart-line mr-3 flex items-self-end"></i>
                     Attendance Report
                 </li>
                 <li
                     class="cursor-pointer flex items-center py-2 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-100">
-                    <i class="fas fa-dollar-sign mr-2"></i>
+                    <i class="fas fa-dollar-sign mr-5 flex items-self-end "></i>
                     Fees and Payments
                 </li>
                 <li
                     class="cursor-pointer flex items-center py-2 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-100">
-                    <i class="fas fa-graduation-cap mr-2"></i>
+                    <i class="fas fa-graduation-cap mr-2 flex items-self-end "></i>
                     Academic Area
                     </a>
                 </li>
             </ul>
 
+            
         </div>
-        <div class="flex w-full p-10">
+        <div class="flex w-full p-10 flex:1">
             <div id="alerts" class=" rounded-lg shadow-lg p-4 mr-10">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">Alerts <i class="fas fa-bell"></i></h2>
                 <!-- Alert list -->
@@ -76,13 +78,15 @@
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">
                     Sticky Notes
                 </h2>
-                <textarea class="bg-yellow-100 rounded-lg p-4" name="sticky_notes" id="sticky_notes"></textarea>
-                <div>
-                    <i class="fas fa-plus text-lg rounded-full bg-gray-200 m-4 p-4 text-slate-500"></i>
+                <div id="sticky-notes">
+                    <textarea class="bg-yellow-100 rounded-lg p-4" name="sticky_notes" id="sticky_notes"></textarea>
+                </div>
+                <div class="flex justify-center">
+                    <i class="fas fa-plus text-lg rounded-full bg-gray-200 m-4 px-4 py-2 text-slate-500" hx-target="#sticky-notes" ></i>
                 </div>
             </div>
         </div>
-
+        
 </body>
 
 </html>
