@@ -53,7 +53,7 @@
                 </li>
             </ul>
 
-            
+
         </div>
         <div class="flex w-full p-10 flex:1">
             <div id="alerts" class=" rounded-lg shadow-lg p-4 mr-10">
@@ -77,17 +77,23 @@
             <div class="flex flex-col">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">
                     Sticky Notes
+                    {{template "notes" .}}
                 </h2>
-                <div id="sticky-notes">
-                    <textarea class="bg-yellow-100 rounded-lg p-4" name="sticky_notes" id="sticky_notes"></textarea>
-                </div>
-                <div class="flex justify-center">
-                    <i class="fas fa-plus text-lg rounded-full bg-gray-200 m-4 px-4 py-2 text-slate-500" hx-target="#sticky-notes" ></i>
-                </div>
+
             </div>
         </div>
-        
+
 </body>
 
 </html>
 {{ end }}
+
+{{block "notes" .}}
+<div id="sticky-notes">
+    <textarea class="bg-yellow-100 rounded-lg p-4" name="sticky_notes" id="sticky_notes"></textarea>
+</div>
+<div id="newButton" class="flex justify-center">
+    <i class="fas fa-plus text-lg rounded-full bg-gray-200 m-4 px-4 py-2 text-slate-500" hx-get="/new"
+        hx-swap="outerHTML" hx-target="#newButton"></i>
+</div>
+{{end}}

@@ -48,6 +48,10 @@ func main() {
 		return c.Render(200, "edit", edit)
 	})
 
+	e.GET("/new", func(c echo.Context) error {
+		return c.Render(200, "notes", nil)
+	})
+
 	e.POST("/account/edit", func(c echo.Context) error {
 		edit.Name = c.FormValue("name")
 		edit.Email = c.FormValue("email")
